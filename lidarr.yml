@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  lidarr:
+    image: linuxserver/lidarr:preview
+    container_name: lidarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIME}
+      - UMASK_SET=${UMASK}
+    volumes:
+      - ${CONFIG}/lidarr:/config
+      - ${DATA}:/data
+    ports:
+      - 8686:8686
+    restart: unless-stopped

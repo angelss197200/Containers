@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  radarr:
+    image: linuxserver/radarr:preview
+    container_name: radarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIME}
+      - UMASK_SET=${UMASK}
+    volumes:
+      - ${CONFIG}/radarr:/config
+      - ${DATA}:/data
+    ports:
+      - 7878:7878
+    restart: unless-stopped

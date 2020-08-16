@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  jellyfin:
+    image: linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=${PUID2}
+      - PGID=${PGID2}
+      - TZ=${TIME}
+      - UMASK_SET=${UMASK}
+    volumes:
+      - ${CONFIG}/jellyfin:/config
+      - ${MEDIA}:/media
+    ports:
+      - 8096:8096
+    devices:
+      - /dev/dri:/dev/dri #optional
+    restart: unless-stopped

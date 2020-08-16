@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+    deemix:
+        image: registry.gitlab.com/bockiii/deemix-docker
+        container_name: deemix
+        volumes:
+            - ${DOWNLOADS}/deemix:/downloads
+            - ${CONFIG}/deemix:/config
+        environment:
+            - PUID=${PUID}
+            - PGID=${PGID}
+            - ARL=${TOKEN}
+            - UMASK_SET=${UMASK}
+        ports:
+            - 6595:6595

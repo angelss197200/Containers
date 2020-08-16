@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  jackett:
+    image: linuxserver/jackett:latest
+    container_name: jackett
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIME}
+      - AUTO_UPDATE=false
+    volumes:
+      - ${CONFIG}/jackett:/config
+      - ${BLACK}:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped

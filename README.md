@@ -1,7 +1,7 @@
 # dockers
 Container for media download and playback
 
-Edit the .env file to your needs, specialy the "COMPOSE_FILE" like and the emty option
+Edit the .env file to your needs, specialy the "COMPOSE_FILE" line and the emty options
 
 
 

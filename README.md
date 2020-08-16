@@ -1,10 +1,11 @@
 # dockers
 Container for media download and playback
 
-Edit the .env file 
+Edit the .env file to your needs, specialy the "COMPOSE_FILE" option
+
+
 
 I use this images
-
 
 https://hub.docker.com/r/linuxserver/sonarr (phamtom)
 

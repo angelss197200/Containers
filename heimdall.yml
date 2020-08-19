@@ -1,0 +1,16 @@
+---
+version: "2.1"
+services:
+  heimdall:
+    image: linuxserver/heimdall:development
+    container_name: heimdall
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIME}
+    volumes:
+      - ${CONFIG}/heimdall:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped

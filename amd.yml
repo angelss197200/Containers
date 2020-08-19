@@ -1,0 +1,25 @@
+version: "2.1"
+services:
+  amd:
+    image: randomninjaatk/amd 
+    container_name: amd
+    volumes:
+      - ${CONFIG}/amd:/config
+      - ${MEDIA}/audio:/downloads-amd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - AUTOSTART=true
+      - LIST=both
+      - SearchType=both
+      - Concurrency=1
+      - quality=FLAC
+      - MatchDistance=10
+      - FolderPermissions=766
+      - FilePermissions=666
+      - MBRAINZMIRROR=https://musicbrainz.org
+      - MBRATELIMIT=1
+      - LidarrUrl=http://127.0.0.1:8686
+      - LidarrAPIkey=
+      - ARL_TOKEN=
+    restart: unless-stopped

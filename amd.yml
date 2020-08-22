@@ -21,6 +21,6 @@ services:
       - MBRAINZMIRROR=https://musicbrainz.org
       - MBRATELIMIT=1
       - LidarrUrl=http://127.0.0.1:8686
-      - LidarrAPIkey=1d1a74c3fba446258d72dc953eb0b82f
-      - ARL_TOKEN=a4970fc7e5a5d25ffb634486821244cec778ff6c41c6b5cc7cbf1409d4c6df1a78b988ed541e7b2e39b37ef494488cb50e0abfa64569cd851f8cffc05c7010e7541367c6456d3715d0d0d7d14eb99d548d3316c341381a742eb0996f27a5e873
+      - LidarrAPIkey=
+      - ARL_TOKEN=
     restart: unless-stopped

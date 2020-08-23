@@ -14,3 +14,6 @@ services:
         ports:
             - 6595:6595
         restart: unless-stopped
+    logging:
+      driver: none
+

@@ -14,6 +14,8 @@ services:
       - ${CONFIG}/netdata:/etc/netdata
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
+        #logging:
+        #  driver: none
     tmpfs:
       - /tmp/netdata-ipc
       - /var/cache/apk

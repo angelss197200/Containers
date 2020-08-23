@@ -24,3 +24,5 @@ services:
       - LidarrAPIkey=
       - ARL_TOKEN=
     restart: unless-stopped
+    logging:
+        driver: none

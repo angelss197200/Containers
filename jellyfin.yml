@@ -16,3 +16,5 @@ services:
     devices:
       - /dev/dri:/dev/dri #optional
     restart: unless-stopped
+    logging:
+      driver: none

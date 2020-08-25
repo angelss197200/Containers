@@ -13,6 +13,5 @@ services:
       - ${DATA}:/data
     ports:
       - 8989:8989
-    restart: unless-stopped
     logging:
       driver: none

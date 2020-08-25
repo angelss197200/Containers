@@ -20,7 +20,6 @@ services:
       - 1.1.1.1
     cap_add:
       - NET_ADMIN
-    restart: unless-stopped
     logging:
       driver: none
 

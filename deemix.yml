@@ -13,7 +13,6 @@ services:
             - UMASK_SET=${UMASK}
         ports:
             - 6595:6595
-        restart: unless-stopped
     logging:
       driver: none
 

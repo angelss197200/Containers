@@ -23,6 +23,5 @@ services:
       - LidarrUrl=http://127.0.0.1:8686
       - LidarrAPIkey=
       - ARL_TOKEN=
-    restart: unless-stopped
     logging:
         driver: none

@@ -14,8 +14,8 @@ services:
       - ${CONFIG}/netdata:/etc/netdata
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
-        #logging:
-        #  driver: none
+    logging:
+       driver: none
     tmpfs:
       - /tmp/netdata-ipc
       - /var/cache/apk
@@ -25,4 +25,3 @@ services:
       - /var/log/libvirt
       - /var/log/netdata
       - /var/log/swtpm
-    restart: unless-stopped

@@ -15,6 +15,5 @@ services:
       - 8096:8096
     devices:
       - /dev/dri:/dev/dri #optional
-    restart: unless-stopped
     logging:
       driver: none

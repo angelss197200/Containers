@@ -10,7 +10,7 @@ services:
       - PUID=1000
       - PGID=1000
       - AUTOSTART=false
-      - LIST=both
+      - LIST=cutoff
       - SearchType=both
       - Concurrency=1
       - quality=FLAC
@@ -20,8 +20,8 @@ services:
       - FilePermissions=666
       - MBRAINZMIRROR=https://musicbrainz.org
       - MBRATELIMIT=1
-      - LidarrUrl=http://127.0.0.1:8686
-      - LidarrAPIkey=
-      - ARL_TOKEN=
+      - LidarrUrl=${HOST}:8686
+      - LidarrAPIkey=${LIDARR}
+      - ARL_TOKEN=${TOKEN}
     logging:
         driver: none

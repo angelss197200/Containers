@@ -13,6 +13,6 @@ services:
             - UMASK_SET=${UMASK}
         ports:
             - 6595:6595
-    logging:
-      driver: none
+        logging:
+          driver: none
 

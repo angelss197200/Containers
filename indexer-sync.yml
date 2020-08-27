@@ -1,0 +1,13 @@
+version: "2.1"
+services:
+  indexer_sync:
+    image: bjeanes/indexer-sync
+    container_name: indexer_sync
+    environment:
+      - SYNC_SONARR_URL=http://${SONARR}@${HOST}:8989
+      - SYNC_JACKETT_URL=http://${JACKETT}@${HOST}:9117
+      - SYNC_PUBLIC_SEED_RATIO=3.0
+      - SYNC_PUBLIC_SEED_TIME=1 week
+      - SYNC_PUBLIC_SEASON_PACK_SEED_TIME=1 month
+      - SYNC_INTERVAL=1 hour
+      - RUST_LOG=info,indexer_sync=debug

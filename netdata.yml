@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   netdata:
-    hostname: netdata
+    hostname: pc
     image: netdata/netdata
     container_name: netdata
     ports:

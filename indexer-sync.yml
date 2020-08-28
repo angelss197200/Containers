@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   indexer_sync:
-    image: bjeanes/indexer-sync
+    image: bjeanes/indexer-sync:unstable
     container_name: indexer_sync
     environment:
       - SYNC_SONARR_URL=http://${SONARR}@${HOST}:8989

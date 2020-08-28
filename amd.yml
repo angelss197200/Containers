@@ -20,7 +20,7 @@ services:
       - FilePermissions=666
       - MBRAINZMIRROR=https://musicbrainz.org
       - MBRATELIMIT=1
-      - LidarrUrl=${HOST}:8686
+      - LidarrUrl=http://${HOST}:8686
       - LidarrAPIkey=${LIDARR}
       - ARL_TOKEN=${TOKEN}
     logging:

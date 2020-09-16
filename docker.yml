@@ -1,6 +1,13 @@
 version: "2.1"
 services:
-  amd:
+  deemix:
+    tmpfs:
+      - /tmp
+      - /var/log
+      - /var/tmp
+      - /var/spool
+      - /var/cache
+  sonarr:
     tmpfs:
       - /tmp
       - /var/log

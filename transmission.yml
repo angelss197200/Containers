@@ -2,7 +2,7 @@ version: "2.1"
 services:
   transmission:
     image: linuxserver/transmission
-    container_name: transmission
+    container_name: transmi
     environment:
       - PUID=${PUID}
       - PGID=${PGID}

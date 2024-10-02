@@ -1,0 +1,39 @@
+version: "2.1"
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    container_name: miniflux
+    ports:
+      - "9191:9191"  # Use the LISTEN_ADDR from the config (port 9191)
+    depends_on:
+      db:
+        condition: service_healthy  # Ensure Miniflux starts after the database is healthy
+    environment:
+      - LOG_DATE_TIME=yes  # Enable log date and time
+      - FETCH_YOUTUBE_WATCH_TIME=yes  # Fetch YouTube watch time
+      - FETCH_ODYSEE_WATCH_TIME=yes  # Fetch Odysee watch time
+      - CLEANUP_ARCHIVE_UNREAD_DAYS=-1  # Archive unread articles older than -1 days (disabled)
+      - LISTEN_ADDR=0.0.0.0:9191  # Listen on all network interfaces on port 9191
+      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable  # Database connection URL
+      - RUN_MIGRATIONS=1  # Automatically run migrations
+      - CREATE_ADMIN=1  # Create an admin user automatically
+      - ADMIN_USERNAME=admin  # Set the admin username
+      - ADMIN_PASSWORD=test123  # Set the admin password
+  db:
+    image: postgres:16  # Use PostgreSQL 16
+    container_name: miniflux-db
+    environment:
+      - POSTGRES_USER=postgres  # PostgreSQL user for Miniflux
+      - POSTGRES_PASSWORD=secret  # PostgreSQL password for Miniflux
+      - POSTGRES_DB=miniflux  # PostgreSQL database name
+    volumes:
+      - miniflux-db:/var/lib/postgresql/data  # Persist the database data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]  # Check if PostgreSQL is ready
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  miniflux-db:

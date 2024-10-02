@@ -14,7 +14,7 @@ services:
       - FETCH_ODYSEE_WATCH_TIME=yes  # Fetch Odysee watch time
       - CLEANUP_ARCHIVE_UNREAD_DAYS=-1  # Archive unread articles older than -1 days (disabled)
       - LISTEN_ADDR=0.0.0.0:9191  # Listen on all network interfaces on port 9191
-      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable  # Database connection URL
+      - DATABASE_URL=postgres://miniflux:fdsafdsa@db/miniflux?sslmode=disable  # Database connection URL
       - RUN_MIGRATIONS=1  # Automatically run migrations
       - CREATE_ADMIN=1  # Create an admin user automatically
       - ADMIN_USERNAME=admin  # Set the admin username
@@ -23,17 +23,14 @@ services:
     image: postgres:16  # Use PostgreSQL 16
     container_name: miniflux-db
     environment:
-      - POSTGRES_USER=postgres  # PostgreSQL user for Miniflux
-      - POSTGRES_PASSWORD=secret  # PostgreSQL password for Miniflux
+      - POSTGRES_USER=miniflux # PostgreSQL user for Miniflux
+      - POSTGRES_PASSWORD=fdsafdsa  # PostgreSQL password for Miniflux
       - POSTGRES_DB=miniflux  # PostgreSQL database name
     volumes:
-      - miniflux-db:/var/lib/postgresql/data  # Persist the database data
+      - ${CONFIG}/postgres-data:/var/lib/postgresql/data  # Store database data in /home/gel/postgres-data
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "miniflux"]  # Check if PostgreSQL is ready
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
-
-volumes:
-  miniflux-db:
